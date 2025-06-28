@@ -1,13 +1,13 @@
-# ResuMate 📝
+# Rezumate 📝
 
 **Analyze, Compare, and Rank Resumes with Ease**
 
 ![Frontend](https://img.shields.io/badge/Frontend-React%20%7C%20TypeScript-blue) 
-![Backend](https://img.shields.io/badge/Backend-Flask-green) 
+![Backend](https://img.shields.io/badge/Backend-FastAPI-green) 
 ![NLP](https://img.shields.io/badge/NLP-Python%20Libraries-yellow) 
-![Platform](https://img.shields.io/badge/Platform-Web%20Application-orange)
+![Platform](https://img.shields.io/badge/Platform-Web-orange)
 
-ResuMate is a web-based tool designed to analyze, compare, and rank resumes based on job descriptions. It leverages **Natural Language Processing (NLP)** using **Python libraries** to extract meaningful insights, ensuring accurate scoring and comparison of resumes. This tool simplifies the hiring process by providing actionable insights to both job seekers and recruiters.
+Rezumate is a web-based tool designed to analyze, compare, and rank resumes based on job descriptions. It leverages **Natural Language Processing (NLP)** using **Python libraries** to extract meaningful insights, ensuring accurate scoring and comparison of resumes. This tool simplifies the hiring process by providing actionable insights to both job seekers and recruiters.
 
 ---
 
@@ -39,15 +39,15 @@ ResuMate is a web-based tool designed to analyze, compare, and rank resumes base
 
 ---
 
-## Future Enhancements ✨
+## Future Enhancements 
 - **Integration with AI**: A chatbot to suggest resume improvements based on the analyzed results.
 - **Advanced Analytics**: Include insights into industry trends based on job descriptions.
 
 ---
 
-## NLP in ResuMate
+## NLP in Rezumate
 
-NLP plays a crucial role in powering the resume analysis and ranking capabilities of ResuMate. Here’s how it’s used:
+NLP plays a crucial role in powering the resume analysis and ranking capabilities of Rezumate. Here’s how it’s used:
 
 1. **Resume Scoring**:
    - Extracts key information from resumes and job descriptions.
@@ -61,7 +61,7 @@ NLP plays a crucial role in powering the resume analysis and ranking capabilitie
    - Processes multiple resumes in bulk.
    - Ranks resumes based on their fit for a specific job using NLP algorithms.
 
-By integrating NLP, ResuMate ensures high accuracy and relevance in its analysis, making it a powerful tool for Resume Analysis.
+By integrating NLP, Rezumate ensures high accuracy and relevance in its analysis, making it a powerful tool for Resume Analysis.
 
 ---
 
