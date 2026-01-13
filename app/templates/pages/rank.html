@@ -71,6 +71,44 @@
 
     let selectedFiles = [];
 
+    // Restore state from sessionStorage
+    const savedState = sessionStorage.getItem('rankState');
+    if (savedState) {
+        try {
+            const state = JSON.parse(savedState);
+            if (state.jobDescription) {
+                document.getElementById('jobDescription').value = state.jobDescription;
+            }
+            if (state.result) {
+                resultsContent.innerHTML = formatMarkdown(state.result);
+                resultsCard.classList.add('visible');
+            }
+            if (state.fileNames && state.fileNames.length > 0) {
+                uploadArea.style.display = 'none';
+                fileList.innerHTML = state.fileNames.map((name, index) => `
+                    <div class="file-list-item">
+                        <span class="file-list-name">${name}</span>
+                        <button type="button" class="file-remove" onclick="clearState()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:18px;height:18px">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        } catch (e) {}
+    }
+
+    function clearState() {
+        selectedFiles = [];
+        sessionStorage.removeItem('rankState');
+        uploadArea.style.display = 'block';
+        fileList.innerHTML = '';
+        resultsCard.classList.remove('visible');
+        submitBtn.disabled = true;
+    }
+    window.clearState = clearState;
+
     uploadArea.addEventListener('dragover', (e) => {
         e.preventDefault();
         uploadArea.classList.add('dragover');
@@ -137,6 +175,8 @@
         selectedFiles.splice(index, 1);
         renderFileList();
         checkSubmitBtn();
+        resultsCard.classList.remove('visible');
+        sessionStorage.removeItem('rankState');
     }
 
     window.removeFile = removeFile;
@@ -193,6 +233,13 @@
 
             resultsContent.innerHTML = formatMarkdown(data.result);
             resultsCard.classList.add('visible');
+
+            // Save rank page state
+            sessionStorage.setItem('rankState', JSON.stringify({
+                jobDescription: jobDescription,
+                fileNames: selectedFiles.map(f => f.name),
+                result: data.result
+            }));
 
         } catch (error) {
             showError(error.message);

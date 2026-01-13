@@ -86,6 +86,26 @@
 
     let selectedFile = null;
 
+    // Restore state from sessionStorage
+    const savedState = sessionStorage.getItem('scoreState');
+    if (savedState) {
+        try {
+            const state = JSON.parse(savedState);
+            if (state.jobDescription) {
+                document.getElementById('jobDescription').value = state.jobDescription;
+            }
+            if (state.result) {
+                resultsContent.innerHTML = formatMarkdown(state.result);
+                resultsCard.classList.add('visible');
+            }
+            if (state.filename) {
+                fileNameSpan.textContent = state.filename;
+                uploadArea.style.display = 'none';
+                fileDisplay.classList.add('visible');
+            }
+        } catch (e) {}
+    }
+
     uploadArea.addEventListener('dragover', (e) => {
         e.preventDefault();
         uploadArea.classList.add('dragover');
@@ -127,6 +147,8 @@
         uploadArea.style.display = 'block';
         fileDisplay.classList.remove('visible');
         submitBtn.disabled = true;
+        resultsCard.classList.remove('visible');
+        sessionStorage.removeItem('scoreState');
     }
 
     function showError(message) {
@@ -176,11 +198,19 @@
             resultsContent.innerHTML = formatMarkdown(data.result);
             resultsCard.classList.add('visible');
 
+            // Save for chat page
             sessionStorage.setItem('resumeData', JSON.stringify({
                 filename: data.filename,
                 text: data.resume_text,
                 jobDescription: jobDescription,
                 score: data.result
+            }));
+
+            // Save score page state
+            sessionStorage.setItem('scoreState', JSON.stringify({
+                jobDescription: jobDescription,
+                filename: data.filename,
+                result: data.result
             }));
 
         } catch (error) {
