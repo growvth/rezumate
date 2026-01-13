@@ -6,7 +6,7 @@
     <title>{% block title %}Rezumate{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles.css">
     {% block head %}{% endblock %}
 </head>
@@ -30,6 +30,12 @@
             {% block content %}{% endblock %}
         </div>
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Built by <a href="https://growvth.com" target="_blank" rel="noopener">Growvth</a> using <a href="https://groq.com" target="_blank" rel="noopener">Groq</a></p>
+        </div>
+    </footer>
 
     {% block scripts %}{% endblock %}
 </body>
