@@ -1,0 +1,22 @@
+[project]
+name = "rezumate"
+version = "0.1.0"
+description = "Resume Analysis Tool"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi==0.115.0",
+    "uvicorn[standard]==0.30.6",
+    "python-multipart==0.0.9",
+    "jinja2==3.1.4",
+    "python-dotenv==1.0.1",
+    "langchain-groq==0.2.0",
+    "pypdf2==3.0.1",
+    "aiofiles==24.1.0",
+]
+
+[project.scripts]
+dev = "uvicorn main:app --reload --host 0.0.0.0 --port 8000"
+
+[tool.uv]
+package = false
