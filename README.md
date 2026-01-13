@@ -4,6 +4,7 @@ A web-based tool for analyzing, comparing, and ranking resumes against job descr
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![Jinja2](https://img.shields.io/badge/UI-Jinja2-B41717?logo=jinja&logoColor=white)
 ![Groq](https://img.shields.io/badge/AI-Groq-F55036)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
